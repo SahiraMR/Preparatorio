@@ -28,4 +28,11 @@ def agregar_usuario(usuario: Usuario):
     usuarios.append(usuario)
     guardar_usuarios(usuarios)
 
+def obtener_usuario_por_id(user_id: int) -> Optional[Usuario]:
+    usuarios = leer_usuarios()
+    for u in usuarios:
+        if u.id == user_id:
+            return u
+    return None
+
 
