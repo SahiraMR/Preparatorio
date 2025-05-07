@@ -43,3 +43,15 @@ def eliminar_usuario(user_id: int) -> bool:
     guardar_usuarios(nuevos)
     return True
 
+def actualizar_usuario(user_id: int, datos: Usuario) -> bool:
+    usuarios = leer_usuarios()
+    actualizado = False
+    for i, u in enumerate(usuarios):
+        if u.id == user_id:
+            usuarios[i] = datos
+            actualizado = True
+            break
+    if actualizado:
+        guardar_usuarios(usuarios)
+    return actualizado
+
