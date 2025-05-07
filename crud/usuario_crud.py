@@ -55,3 +55,6 @@ def actualizar_usuario(user_id: int, datos: Usuario) -> bool:
         guardar_usuarios(usuarios)
     return actualizado
 
+def filtrar_por_tipo(tipo: str) -> List[Usuario]:
+    usuarios = leer_usuarios()
+    return [u for u in usuarios if u.tipo.lower() == tipo.lower()]
