@@ -35,4 +35,11 @@ def obtener_usuario_por_id(user_id: int) -> Optional[Usuario]:
             return u
     return None
 
+def eliminar_usuario(user_id: int) -> bool:
+    usuarios = leer_usuarios()
+    nuevos = [u for u in usuarios if u.id != user_id]
+    if len(nuevos) == len(usuarios):
+        return False
+    guardar_usuarios(nuevos)
+    return True
 
