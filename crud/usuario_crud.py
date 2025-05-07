@@ -16,4 +16,10 @@ def leer_usuarios() -> List[Usuario]:
                 "tipo": row["tipo"]
             }))
     return usuarios
+def guardar_usuarios(lista: List[Usuario]):
+    with open(RUTA_CSV, mode='w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=["id", "nombre", "correo", "tipo"])
+        writer.writeheader()
+        for u in lista:
+            writer.writerow(u.dict())
 
