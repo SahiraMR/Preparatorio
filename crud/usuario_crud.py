@@ -23,3 +23,9 @@ def guardar_usuarios(lista: List[Usuario]):
         for u in lista:
             writer.writerow(u.dict())
 
+def agregar_usuario(usuario: Usuario):
+    usuarios = leer_usuarios()
+    usuarios.append(usuario)
+    guardar_usuarios(usuarios)
+
+
